@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+textarea{
+    resize: none !important;
+}
+
+/* Customização do Sub-menu Dropdown */
+.navbar-nav .dropdown-menu {
+    background-color: #222831;
+    border: 1px solid #ffbe33;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .navbar-nav .dropdown-item {
+    color: #ffffff;
+    padding: 8px 20px;
+    transition: all 0.3s;
+  }
+  
+  .navbar-nav .dropdown-item:hover {
+    background-color: #ffbe33;
+    color: #222831;
+  }
+
+  .nav-link img{
+    width: 30px;
+  }
+  
+  /* Suporte para visualização ao passar o mouse em telas maiores */
+  @media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  }

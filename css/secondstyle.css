@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
+}
+
+/* Fonte "Press Start 2P" para todas as abas do menu */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+}
+
+/* Fonte "Press Start 2P" para o título do conteúdo da página */
+.heading_container h2 {
+  font-family: 'Press Start 2P', cursive;
 }
 
 textarea{
@@ -29,6 +43,14 @@ textarea{
   .nav-link img{
     width: 30px;
   }
+
+
+
+.home .about_section {
+  background-color: none;
+  color: #ffffff;
+}
+
   
   /* Suporte para visualização ao passar o mouse em telas maiores */
   @media (min-width: 992px) {
@@ -36,3 +58,253 @@ textarea{
       display: block;
     }
   }
+
+/* ======================================================
+   HOME - visual mais atrativo e animado
+   ====================================================== */
+
+/* faz o hero da página Sobre ocupar a tela toda, igual à home */
+.page-sobre .hero_area {
+  min-height: 100vh;
+}
+
+/* escurece um pouco a imagem de fundo do hero pra dar contraste ao texto */
+.home .hero_area .bg-box::after,
+.page-sobre .hero_area .bg-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+/* texto de destaque sobre o hero */
+.home .hero_area .hero_text_container,
+.page-sobre .hero_area .hero_text_container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-grow: 1;
+  padding: 0 20px;
+  color: #ffffff;
+  animation: fadeInUp 1.2s ease both;
+}
+
+.home .hero_area .hero_text_container h1,
+.page-sobre .hero_area .hero_text_container h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.2rem;
+  line-height: 1.6;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+}
+
+.home .hero_area .hero_text_container h1 span,
+.page-sobre .hero_area .hero_text_container h1 span {
+  color: #ffbe33;
+}
+
+.home .hero_area .hero_text_container p,
+.page-sobre .hero_area .hero_text_container p {
+  margin-top: 25px;
+  font-size: 1.15rem;
+  max-width: 650px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.home .hero_area .btn_hero,
+.page-sobre .hero_area .btn_hero {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 14px 40px;
+  background-color: #ffbe33;
+  color: #222831;
+  font-weight: bold;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.home .hero_area .btn_hero:hover,
+.page-sobre .hero_area .btn_hero:hover {
+  background-color: #ffffff;
+  color: #222831;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* seta indicando "role pra baixo" */
+.home .hero_area .scroll_down,
+.page-sobre .hero_area .scroll_down {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto 25px;
+  width: 34px;
+  height: 34px;
+  border-left: 3px solid #ffbe33;
+  border-bottom: 3px solid #ffbe33;
+  transform: rotate(-45deg);
+  animation: bounceDown 1.8s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceDown {
+  0%, 100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) translate(-8px, -8px);
+  }
+}
+
+/* blocos de conteúdo da home entrando suavemente */
+.home .about_section .container {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.home .about_section .container:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+
+.home .about_section .container:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* leve zoom na imagem ao passar o mouse, dá mais vida à página */
+.home .about_section .img-box {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.home .about_section .img-box img {
+  transition: transform 0.5s ease;
+}
+
+.home .about_section .img-box:hover img {
+  transform: scale(1.06);
+}
+
+/* destaque sutil no botão "Leia mais" */
+.home .about_section .detail-box > a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 28px;
+  border: 2px solid #ffbe33;
+  border-radius: 30px;
+  color: #ffbe33;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.home .about_section .detail-box > a:hover {
+  background-color: #ffbe33;
+  color: #222831;
+}
+
+/* ======================================================
+   SOBRE - card com fundo cinza transparente
+   ====================================================== */
+.page-sobre .about_section .detail-box {
+  background-color: rgba(34, 40, 49, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  opacity: 0;
+  animation: sobreFadeInRight 1s ease 0.25s forwards;
+}
+
+.page-sobre .about_section .detail-box a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 28px;
+  border: 2px solid #ffbe33;
+  border-radius: 30px;
+  color: #ffbe33;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.page-sobre .about_section .detail-box a:hover {
+  background-color: #ffbe33;
+  color: #222831;
+  transform: translateY(-3px) scale(1.05);
+  animation-play-state: paused;
+  box-shadow: 0 8px 18px rgba(255, 190, 51, 0.45);
+}
+
+/* imagem entra deslizando e ganha um leve zoom ao passar o mouse */
+.page-sobre .about_section .img-box {
+  overflow: hidden;
+  border-radius: 12px;
+  opacity: 0;
+  animation: sobreFadeInLeft 1s ease both;
+}
+
+.page-sobre .about_section .img-box img {
+  transition: transform 0.5s ease;
+}
+
+.page-sobre .about_section .img-box:hover img {
+  transform: scale(1.06) rotate(-1deg);
+}
+
+@keyframes sobreFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sobreFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 190, 51, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 190, 51, 0.55);
+  }
+}

@@ -152,6 +152,13 @@ textarea{
   animation: bounceDown 1.8s infinite;
 }
 
+@media (max-width: 767px) {
+  .about_section .heading_container h2 {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

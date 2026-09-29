@@ -1,317 +1,232 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-*{
-    margin: 0px;
-    padding: 0px;
-}
+/* ===== Variáveis (cores usadas no site inteiro) ===== */
+:root{--amber:#ffbe33; --ink:#222831; --deep:#151a20; --muted:#b9bfc7}
 
-/* Fonte "Press Start 2P" para todas as abas do menu */
+/* ===== Base: fundo escuro e rodapé sempre no fim da tela ===== */
+*{margin:0; padding:0}
+html{background:var(--ink); scroll-behavior:smooth}
+body{min-height:100vh; display:flex; flex-direction:column; background:var(--ink)}
+body>*{flex-shrink:0}
+body>.about_section, body>.book_section, body>main{flex-grow:1}
+body>.footer_section{margin-top:auto}
+textarea{resize:none!important}
+
+/* ===== Menu ===== */
 .navbar-nav .nav-link,
-.navbar-nav .dropdown-item {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 0.7rem;
+.navbar-nav .dropdown-item,
+.heading_container h2{font-family:'Press Start 2P',cursive}
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item{font-size:.7rem}
+.navbar-nav .dropdown-menu{background:var(--ink); border:1px solid var(--amber); border-radius:5px; margin-top:5px}
+.navbar-nav .dropdown-item{color:#fff; padding:8px 20px; transition:all .3s}
+.navbar-nav .dropdown-item:hover{background:var(--amber); color:var(--ink)}
+.nav-link img{width:30px}
+@media (min-width:992px){.nav-item.dropdown:hover .dropdown-menu{display:block}}
+
+/* ===== Home ===== */
+.home .hero_area .bg-box::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.7));
 }
-
-/* Fonte "Press Start 2P" para o título do conteúdo da página */
-.heading_container h2 {
-  font-family: 'Press Start 2P', cursive;
+.home .hero_area .hero_text_container{
+  position:relative; z-index:2; flex-grow:1; padding:0 20px; color:#fff; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  animation:fadeInUp 1.2s ease both;
 }
-
-textarea{
-    resize: none !important;
+.home .hero_area .hero_text_container h1{font-family:'Press Start 2P',cursive; font-size:2.2rem; line-height:1.6; text-shadow:3px 3px 0 rgba(0,0,0,.6)}
+.home .hero_area .hero_text_container h1 span{color:var(--amber)}
+.home .hero_area .hero_text_container p{margin-top:25px; max-width:650px; font-size:1.15rem; text-shadow:1px 1px 6px rgba(0,0,0,.6)}
+.home .hero_area .btn_hero{
+  display:inline-block; margin-top:35px; padding:14px 40px;
+  background:var(--amber); color:var(--ink); font-weight:bold; letter-spacing:1px;
+  border-radius:30px; transition:all .3s ease;
 }
+.home .hero_area .btn_hero:hover{background:#fff; transform:translateY(-3px) scale(1.05); box-shadow:0 8px 20px rgba(0,0,0,.35)}
+@keyframes fadeInUp{from{opacity:0; transform:translateY(40px)} to{opacity:1; transform:none}}
+@media (max-width:992px){.home .hero_area{min-height:100vh}}
+@media (max-width:767px){.about_section .heading_container h2{font-size:1.2rem; line-height:1.5}}
 
-/* Customização do Sub-menu Dropdown */
-.navbar-nav .dropdown-menu {
-    background-color: #222831;
-    border: 1px solid #ffbe33;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .navbar-nav .dropdown-item {
-    color: #ffffff;
-    padding: 8px 20px;
-    transition: all 0.3s;
-  }
-  
-  .navbar-nav .dropdown-item:hover {
-    background-color: #ffbe33;
-    color: #222831;
-  }
-
-  .nav-link img{
-    width: 30px;
-  }
-
-
-
-.home .about_section {
-  background-color: none;
-  color: #ffffff;
+/* ===== Páginas Sobre, Evolução e Bibliografia: base em comum ===== */
+.sobre-page{background:var(--deep); color:#eee}
+.sobre-wrap,.evo-page,.bib-page{
+  color:#eee;
+  background:
+    linear-gradient(rgba(255,190,51,.045) 1px,transparent 1px) 0 0/32px 32px,
+    linear-gradient(90deg,rgba(255,190,51,.045) 1px,transparent 1px) 0 0/32px 32px,
+    var(--deep);
 }
+.sobre-wrap{padding:80px 0 90px}
+.evo-page{padding:60px 0 90px}
+.bib-page{padding:70px 0 80px}
+.sobre-page h2,.sobre-page h3{font-family:'Press Start 2P',cursive}
 
-  
-  /* Suporte para visualização ao passar o mouse em telas maiores */
-  @media (min-width: 992px) {
-    .nav-item.dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  }
-
-/* ======================================================
-   HOME - visual mais atrativo e animado
-   ====================================================== */
-
-/* faz o hero da página Sobre ocupar a tela toda, igual à home */
-.page-sobre .hero_area {
-  min-height: 100vh;
+/* cartões estilo "tela de arcade" */
+.crt,.era,.bib-card{
+  background:var(--ink); border:4px solid var(--amber); border-radius:14px;
+  box-shadow:8px 8px 0 rgba(255,190,51,.25); overflow:hidden;
 }
-
-/* escurece um pouco a imagem de fundo do hero pra dar contraste ao texto */
-.home .hero_area .bg-box::after,
-.page-sobre .hero_area .bg-box::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.7) 100%);
+.era{box-shadow:8px 8px 0 rgba(255,190,51,.22)}
+.crt{position:relative}
+.crt::after{ /* linhas de varredura */
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);
 }
+.crt-bar,.era-bar,.bib-bar{background:var(--amber); color:var(--ink); font-family:'Press Start 2P',cursive; font-size:.62rem}
+.era-bar,.bib-bar{padding:10px 18px}
+.crt-bar{display:flex; align-items:center; gap:8px; padding:10px 16px; font-size:.6rem}
+.crt-bar i{display:inline-block; width:10px; height:10px; background:var(--ink)}
+.crt-bar span{margin-left:auto}
+.crt-body h2,.era h2,.bib-body h2{font-family:'Press Start 2P',cursive; line-height:1.6; color:var(--amber)}
 
-/* texto de destaque sobre o hero */
-.home .hero_area .hero_text_container,
-.page-sobre .hero_area .hero_text_container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-grow: 1;
-  padding: 0 20px;
-  color: #ffffff;
-  animation: fadeInUp 1.2s ease both;
+/* moldura das imagens */
+.sobre-img,.bib-img{border:4px solid var(--amber); border-radius:14px; overflow:hidden; background:var(--ink); box-shadow:-8px 8px 0 rgba(255,190,51,.25)}
+.sobre-img img,.bib-img img{display:block; width:100%; height:auto}
+
+/* ===== Sobre ===== */
+.crt-body{position:relative; z-index:1; padding:34px 36px 40px}
+.crt-body h2{font-size:1.25rem; margin-bottom:22px}
+.crt-body p{max-width:62ch; font-size:1.02rem; line-height:1.85; color:#e6e6e6}
+.crt-body p strong{color:var(--amber)}
+
+.btn-start{
+  display:inline-block; margin-top:26px; padding:14px 26px; border:0; border-radius:0;
+  background:var(--amber); color:var(--ink); font-family:'Press Start 2P',cursive; font-size:.7rem;
+  box-shadow:5px 5px 0 #b57f00; text-decoration:none; transition:transform .12s, box-shadow .12s;
 }
+.btn-start:hover{color:var(--ink); text-decoration:none; transform:translate(3px,3px); box-shadow:2px 2px 0 #b57f00}
+.btn-start:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.btn-start .blink{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
 
-.home .hero_area .hero_text_container h1,
-.page-sobre .hero_area .hero_text_container h1 {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 2.2rem;
-  line-height: 1.6;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+.timeline-head{margin:90px 0 40px; text-align:center}
+.timeline-head h3{font-size:1rem; line-height:1.7; color:#eee}
+.timeline-head p{margin-top:12px; color:var(--muted)}
+.timeline{list-style:none; margin:0; padding:0; position:relative; display:grid; grid-template-columns:repeat(4,1fr)}
+.timeline::before{content:""; position:absolute; left:0; right:0; top:22px; height:4px; background:repeating-linear-gradient(90deg,var(--amber) 0 12px,transparent 12px 20px)}
+.timeline li{position:relative; padding:0 14px; text-align:left}
+.timeline .dot{position:relative; z-index:1; display:block; width:44px; height:44px; margin-bottom:22px; background:var(--ink); border:4px solid var(--amber); box-shadow:0 0 0 6px var(--deep)}
+.timeline li:last-child .dot{background:var(--amber)}
+.timeline .year{display:block; margin-bottom:12px; font-family:'Press Start 2P',cursive; font-size:.85rem; color:var(--amber)}
+.timeline h4{margin-bottom:8px; font-size:1.05rem; font-weight:700; color:#fff}
+.timeline p{margin:0; font-size:.92rem; line-height:1.7; color:var(--muted)}
+.sobre-cta{margin-top:80px; text-align:center}
+.sobre-cta p{margin-bottom:10px; font-family:'Press Start 2P',cursive; font-size:.8rem; line-height:1.9}
+
+/* ===== Evolução: linha do tempo lateral ===== */
+.evo-grid{display:grid; grid-template-columns:170px 1fr; gap:48px; align-items:start}
+.evo-nav{position:sticky; top:24px}
+.evo-nav ol{list-style:none; margin:0; padding:0; position:relative}
+.evo-nav ol::before,.evo-nav ol::after{content:""; position:absolute; left:11px; top:12px; width:4px; border-radius:2px}
+.evo-nav ol::before{bottom:12px; background:rgba(255,190,51,.22)}
+.evo-nav ol::after{height:var(--fill,0px); background:var(--amber); transition:height .4s ease}
+.evo-nav li{position:relative}
+.evo-nav a{position:relative; z-index:1; display:flex; align-items:center; gap:16px; padding:9px 0; color:var(--muted); text-decoration:none}
+.evo-nav .dot{flex:none; width:26px; height:26px; background:var(--deep); border:4px solid rgba(255,190,51,.5); transition:all .2s}
+.evo-nav .yr{font-family:'Press Start 2P',cursive; font-size:.62rem; line-height:1.5; transition:color .2s}
+.evo-nav small{display:block; margin-top:2px; font-family:inherit; font-size:.72rem; color:#8b939c}
+.evo-nav a:hover{text-decoration:none; color:#fff}
+.evo-nav a:hover .dot,.evo-nav a.passed .dot{border-color:var(--amber)}
+.evo-nav a:focus-visible{outline:3px solid #fff; outline-offset:2px}
+.evo-nav a[aria-current="true"] .dot{background:var(--amber); border-color:var(--amber); transform:scale(1.15)}
+.evo-nav a[aria-current="true"] .yr{color:var(--amber)}
+
+.era{scroll-margin-top:24px; margin-bottom:56px}
+.era-body{padding:28px 30px 32px}
+.era h2{margin-bottom:16px; font-size:1.05rem}
+.era-intro{margin:0; max-width:66ch; font-size:1rem; line-height:1.8; color:#e6e6e6}
+.era-cols{display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:28px}
+.era h3{margin-bottom:14px; padding-bottom:10px; border-bottom:3px dotted rgba(255,190,51,.5); font-family:'Press Start 2P',cursive; font-size:.68rem; line-height:1.6; color:#fff}
+.era ul{list-style:none; margin:0; padding:0}
+.era li{margin-bottom:14px; font-size:.92rem; line-height:1.6; color:var(--muted)}
+.era li b{display:block; font-size:.98rem; color:#fff}
+.era li b em{margin-left:6px; font-style:normal; font-weight:400; font-size:.85rem; color:var(--amber)}
+
+/* ===== Bibliografia ===== */
+.bib-body{padding:30px 32px 34px}
+.bib-body h2{margin-bottom:8px; font-size:1.05rem}
+.bib-body .lead{margin-bottom:24px; font-size:.95rem; color:var(--muted)}
+.bib-list{list-style:none; margin:0; padding:0; display:grid; gap:14px}
+.bib-list a{
+  display:flex; align-items:center; gap:14px; min-height:56px; padding:14px 20px;
+  background:var(--amber); color:var(--ink); font-weight:700; line-height:1.4; text-decoration:none;
+  border:3px solid #000; border-radius:14px;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
 }
-
-.home .hero_area .hero_text_container h1 span,
-.page-sobre .hero_area .hero_text_container h1 span {
-  color: #ffbe33;
+.bib-list a::before{content:""; flex:none; width:12px; height:12px; background:#000; transition:transform .18s ease}
+.bib-list .go{margin-left:auto; flex:none; font-size:1.1rem; line-height:1; transition:transform .18s ease}
+.bib-list a:hover,.bib-list a:focus-visible{
+  color:var(--ink); text-decoration:none; background:#ffd36b; transform:translate(-4px,-4px);
+  box-shadow:6px 6px 0 #000, 6px 6px 0 3px rgba(255,190,51,.55);
 }
+.bib-list a:hover::before,.bib-list a:focus-visible::before{transform:rotate(45deg) scale(1.1)}
+.bib-list a:hover .go,.bib-list a:focus-visible .go{transform:translate(4px,-4px)}
+.bib-list a:active{transform:none; box-shadow:none}
+.bib-list a:focus-visible{outline:3px solid #fff; outline-offset:4px}
 
-.home .hero_area .hero_text_container p,
-.page-sobre .hero_area .hero_text_container p {
-  margin-top: 25px;
-  font-size: 1.15rem;
-  max-width: 650px;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+/* ===== Botão "voltar ao topo" (seta com imagem da internet) ===== */
+.btn-topo{
+  position:fixed; z-index:1000; width:50px; height:50px;
+  right:calc(20px + env(safe-area-inset-right,0px)); bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  display:flex; align-items:center; justify-content:center;
+  background:var(--amber); border:3px solid #000; border-radius:12px; box-shadow:4px 4px 0 #000;
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .25s, transform .25s, visibility .25s, box-shadow .15s, background-color .15s;
 }
-
-.home .hero_area .btn_hero,
-.page-sobre .hero_area .btn_hero {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 14px 40px;
-  background-color: #ffbe33;
-  color: #222831;
-  font-weight: bold;
-  border-radius: 30px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+.btn-topo.visivel{opacity:1; visibility:visible; transform:none}
+.btn-topo::before{ /* seta desenhada em CSS (usada se não houver a versão com imagem) */
+  content:""; width:14px; height:14px; border-left:4px solid #000; border-top:4px solid #000;
+  transform:translateY(3px) rotate(45deg); transition:transform .15s;
 }
+.btn-topo:hover,.btn-topo:focus-visible{background:#ffd36b; box-shadow:6px 6px 0 #000; transform:translate(-2px,-2px)}
+.btn-topo:hover::before,.btn-topo:focus-visible::before{transform:translateY(0) rotate(45deg)}
+.btn-topo:active{box-shadow:1px 1px 0 #000; transform:translate(2px,2px)}
+.btn-topo:focus-visible{outline:3px solid #fff; outline-offset:3px}
 
-.home .hero_area .btn_hero:hover,
-.page-sobre .hero_area .btn_hero:hover {
-  background-color: #ffffff;
-  color: #222831;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+/* versão com imagem (ArrowUp.svg, Wikimedia Commons): só HTML + CSS */
+.btn-topo--img{opacity:1; visibility:visible; transform:none}
+.btn-topo--img::before{
+  width:26px; height:26px; border:0; transform:none;
+  background:url("https://commons.wikimedia.org/wiki/Special:FilePath/ArrowUp.svg") center/contain no-repeat;
 }
-
-/* seta indicando "role pra baixo" */
-.home .hero_area .scroll_down,
-.page-sobre .hero_area .scroll_down {
-  position: relative;
-  z-index: 2;
-  margin: 0 auto 25px;
-  width: 34px;
-  height: 34px;
-  border-left: 3px solid #ffbe33;
-  border-bottom: 3px solid #ffbe33;
-  transform: rotate(-45deg);
-  animation: bounceDown 1.8s infinite;
+.btn-topo--img:hover::before,.btn-topo--img:focus-visible::before{transform:translateY(-3px)}
+@supports (animation-timeline:scroll()){ /* aparece só depois de rolar, sem JavaScript */
+  .btn-topo--img{opacity:0; visibility:hidden; animation:btnTopoAparece linear both; animation-timeline:scroll(root); animation-range:0 400px}
 }
+@keyframes btnTopoAparece{to{opacity:1; visibility:visible}}
 
-@media (max-width: 767px) {
-  .about_section .heading_container h2 {
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
+/* ===== Responsivo ===== */
+@media (max-width:991px){
+  .sobre-img,.bib-img{margin-bottom:44px}
+  .timeline{grid-template-columns:1fr; gap:34px}
+  .timeline::before{left:22px; right:auto; top:0; bottom:0; width:4px; height:auto; background:repeating-linear-gradient(180deg,var(--amber) 0 12px,transparent 12px 20px)}
+  .timeline li{padding:0 0 0 72px}
+  .timeline .dot{position:absolute; left:0; top:0; margin:0}
+
+  .evo-grid{grid-template-columns:1fr; gap:20px}
+  .evo-nav{top:0; z-index:20; margin:0 -15px; padding:10px 15px; overflow-x:auto; -webkit-overflow-scrolling:touch; background:rgba(21,26,32,.96); border-bottom:3px solid var(--amber)}
+  .evo-nav ol{display:flex; gap:8px}
+  .evo-nav ol::before,.evo-nav ol::after,.evo-nav small,.evo-nav .dot{display:none}
+  .evo-nav a{padding:10px 12px; border:3px solid rgba(255,190,51,.4); white-space:nowrap}
+  .evo-nav a[aria-current="true"]{background:var(--amber); border-color:var(--amber)}
+  .evo-nav a[aria-current="true"] .yr{color:var(--ink)}
+  .era{scroll-margin-top:84px}
 }
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@media (max-width:767px){
+  .era-cols{grid-template-columns:1fr; gap:24px}
+  .era-body{padding:22px 20px 26px}
+  .era h2{font-size:.9rem}
 }
-
-@keyframes bounceDown {
-  0%, 100% {
-    transform: rotate(-45deg) translate(0, 0);
-  }
-  50% {
-    transform: rotate(-45deg) translate(-8px, -8px);
-  }
+@media (max-width:575px){
+  .sobre-wrap,.bib-page{padding:50px 0 60px}
+  .crt-body{padding:26px 22px 32px}
+  .crt-body h2{font-size:1rem}
+  .bib-body{padding:24px 18px 28px}
+  .bib-body h2{font-size:.9rem}
+  .bib-list a{padding:12px 14px}
 }
-
-/* blocos de conteúdo da home entrando suavemente */
-.home .about_section .container {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-}
-
-.home .about_section .container:nth-of-type(2) {
-  animation-delay: 0.15s;
-}
-
-.home .about_section .container:nth-of-type(3) {
-  animation-delay: 0.3s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* leve zoom na imagem ao passar o mouse, dá mais vida à página */
-.home .about_section .img-box {
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.home .about_section .img-box img {
-  transition: transform 0.5s ease;
-}
-
-.home .about_section .img-box:hover img {
-  transform: scale(1.06);
-}
-
-/* destaque sutil no botão "Leia mais" */
-.home .about_section .detail-box > a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 28px;
-  border: 2px solid #ffbe33;
-  border-radius: 30px;
-  color: #ffbe33;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.home .about_section .detail-box > a:hover {
-  background-color: #ffbe33;
-  color: #222831;
-}
-
-/* ======================================================
-   SOBRE - card com fundo cinza transparente
-   ====================================================== */
-.page-sobre .about_section .detail-box {
-  background-color: rgba(34, 40, 49, 0.6);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  padding: 35px;
-  border-radius: 12px;
-  opacity: 0;
-  animation: sobreFadeInRight 1s ease 0.25s forwards;
-}
-
-.page-sobre .about_section .detail-box a {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 28px;
-  border: 2px solid #ffbe33;
-  border-radius: 30px;
-  color: #ffbe33;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  animation: pulseGlow 2.5s ease-in-out infinite;
-}
-
-.page-sobre .about_section .detail-box a:hover {
-  background-color: #ffbe33;
-  color: #222831;
-  transform: translateY(-3px) scale(1.05);
-  animation-play-state: paused;
-  box-shadow: 0 8px 18px rgba(255, 190, 51, 0.45);
-}
-
-/* imagem entra deslizando e ganha um leve zoom ao passar o mouse */
-.page-sobre .about_section .img-box {
-  overflow: hidden;
-  border-radius: 12px;
-  opacity: 0;
-  animation: sobreFadeInLeft 1s ease both;
-}
-
-.page-sobre .about_section .img-box img {
-  transition: transform 0.5s ease;
-}
-
-.page-sobre .about_section .img-box:hover img {
-  transform: scale(1.06) rotate(-1deg);
-}
-
-@keyframes sobreFadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes sobreFadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 0 rgba(255, 190, 51, 0);
-  }
-  50% {
-    box-shadow: 0 0 14px rgba(255, 190, 51, 0.55);
-  }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn-start .blink{animation:none}
+  .btn-start,.bib-list a,.bib-list a::before,.bib-list .go,.btn-topo,.btn-topo::before{transition:none}
 }

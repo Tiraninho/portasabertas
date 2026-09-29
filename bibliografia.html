@@ -35,12 +35,11 @@
   <link href="css/responsive.css" rel="stylesheet" />
 
   <link href="css/secondstyle.css" rel="stylesheet">
+  <link href="css/bibliografia.css" rel="stylesheet">
 
 </head>
 
-<body>
-
-  <body class="sub_page">
+<body id="topo" class="sub_page">
 
     <div class="hero_area">
       <div class="bg-box">
@@ -98,38 +97,35 @@
     </div>
 
     <!-- about section -->
-
-    <section class="about_section layout_padding">
-      <div class="container  ">
-
-        <div class="row">
-          <div class="col-md-6 ">
-            <br>
-            <br>
-            <br>
-            <div class="img-box">
-              <img src="images/sobre-img.png" alt="">
+    <main class="bib-page">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <div class="bib-img">
+              <img src="images/sobre-img.png" alt="Ilustração sobre a evolução dos jogos">
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="detail-box">
-              <div class="heading_container">
-                <h2> Bibliografias utilizadas </h2>
+          <div class="col-lg-7">
+            <div class="bib-card">
+              <div class="bib-bar">FONTES.EXE</div>
+              <div class="bib-body">
+                <h2>Bibliografias utilizadas</h2>
+                <p class="lead">Clique em uma fonte para abrir o site em uma nova aba.</p>
+                <ul class="bib-list">
+                  <li><a href="https://www.sbgames.org" target="_blank" rel="noopener">SBGames com: A Estrutura Narrativa Dos Jogos Eletrônicos<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                  <li><a href="https://www.gov.br" target="_blank" rel="noopener">BDTD (Biblioteca Digital de Teses e Dissertações)<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                  <li><a href="https://www.scielo.br" target="_blank" rel="noopener">SciELO Brasil<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                  <li><a href="https://www.bnl.gov" target="_blank" rel="noopener">Brookhaven National Laboratory (BNL)<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                  <li><a href="https://www.theesa.com" target="_blank" rel="noopener">Entertainment Software Association (ESA)<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                  <li><a href="https://jogosz.com.br/evolucao-do-videogame/" target="_blank" rel="noopener">Evolução dos videogames<span class="go" aria-hidden="true">&#8599;</span></a></li>
+                </ul>
               </div>
-              <p>
-                <a href="https://www.sbgames.org" target="_blank">SBGames com: A Estrutura Narrativa Dos Jogos
-                  Eletrônicos</a><br>
-                <a href="https://www.gov.br" target="_blank">BDTD (Biblioteca Digital de Teses e Dissertações)</a><br>
-                <a href="https://www.scielo.br" target="_blank">SciELO Brasil</a><br>
-                <a href="https://www.bnl.gov" target="_blank">Brookhaven National Laboratory (BNL)</a><br>
-                <a href="https://www.theesa.com" target="_blank">Entertainment Software Association (ESA)</a><br>
-                <a href="https://jogosz.com.br/evolucao-do-videogame/" target="_blank">Evolução dos videogames</a>
-              </p>
             </div>
           </div>
         </div>
       </div>
-
+    </main>
+    <!-- end about section -->
 
       <!-- footer section -->
       <footer class="footer_section">
@@ -166,6 +162,9 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
       </script>
       <!-- End Google Map -->
+
+  <!-- voltar ao topo -->
+    <a href="#topo" id="btn-topo" class="btn-topo btn-topo--img" aria-label="Voltar ao topo" title="Voltar ao topo"></a>
 
   </body>
 

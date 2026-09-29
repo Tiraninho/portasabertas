@@ -34,10 +34,11 @@
     <link href="css/responsive.css" rel="stylesheet" />
 
     <link href="css/secondstyle.css" rel="stylesheet">
+    <link href="css/sobre.css" rel="stylesheet">
 
   </head>
 
-  <body class="sub_page">
+  <body id="topo" class="sub_page">
 
     <div class="hero_area">
       <div class="bg-box">
@@ -95,46 +96,76 @@
     </div>
 
     <!-- about section -->
-
-    <section class="about_section layout_padding">
-      <div class="container  ">
-
-        <div class="row">
-          <div class="col-md-6 ">
-            <br>
-            <br>
-            <br>
-            <div class="img-box">
-              <img src="images/sobre-img.png" alt="">
+    <main class="sobre-page">
+      <section class="sobre-wrap">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="sobre-img">
+                <img src="images/sobre-img.png" alt="Ilustração sobre a evolução dos jogos">
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="crt">
+                <div class="crt-bar"><i></i><i></i><i></i><span>SOBRE.EXE</span></div>
+                <div class="crt-body">
+                  <h2>A Evolução Dos Jogos</h2>
+                  <p>
+                    Você se lembra da primeira vez em que segurou um controle? Seja controlando uma barra branca
+                    para rebater uma bolinha quadrada ou explorando cenários fotorrealistas de última geração,
+                    a evolução dos games é uma corrida alucinante de criatividade e tecnologia. Da genialidade
+                    rústica dos anos 1970 às produções bilionárias e realidades virtuais de hoje, cada geração
+                    de consoles trouxe um novo <strong>Level Up</strong> para a humanidade.
+                  </p>
+                  <p class="mt-3">
+                    Em nosso site, você vai desbloquear o conhecimento por trás dos sistemas mais icônicos, as
+                    crises que quase destruíram o mercado e os bastidores dos títulos que mudaram a indústria
+                    para sempre. Pronto para o próximo nível?
+                  </p>
+                  <a class="btn-start" href="evoluçao.html">Saiba mais <span class="blink">&#9654;</span></a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="detail-box">
-              <div class="heading_container">
-                <h2>A Evolução Dos Jogos</h2>
-              </div>
-              <br>
-              <p>
-                Você se lembra da primeira vez em que segurou um controle? Seja controlando
-                uma barra branca para rebater uma bolinha quadrada ou explorando cenários
-                fotorrealistas de última geração, a evolução dos games é uma corrida alucinante
-                de criatividade e tecnologia.Da genialidade rústica dos anos 1970 às produções
-                bilionárias e realidades virtuais de hoje, cada geração de consoles trouxe um novo
-                Level Up para a humanidade. Em nosso site, você vai desbloquear o conhecimento
-                por trás dos sistemas mais icônicos, as crises que quase destruíram o mercado
-                e os bastidores dos títulos que mudaram a indústria para sempre. Pronto para
-                o próximo nível?
-              </p>
-              <br>
-              <a href="evoluçao.html">
-                Saiba mais
-              </a>
-            </div>
+
+          <div class="timeline-head">
+            <h3>O que você vai encontrar</h3>
+            <p>Quatro momentos que definiram a história dos video games.</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <span class="dot"></span>
+              <span class="year">1972</span>
+              <h4>Nasce o arcade</h4>
+              <p>Pong leva os jogos eletrônicos aos bares e fliperamas.</p>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <span class="year">1983</span>
+              <h4>A grande crise</h4>
+              <p>O excesso de jogos ruins derruba o mercado nos Estados Unidos.</p>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <span class="year">Anos 90</span>
+              <h4>Era 3D</h4>
+              <p>Consoles de 32 e 64 bits colocam os jogos em três dimensões.</p>
+            </li>
+            <li>
+              <span class="dot"></span>
+              <span class="year">Hoje</span>
+              <h4>Realidade virtual</h4>
+              <p>Gráficos realistas, jogos online e óculos de VR.</p>
+            </li>
+          </ol>
+
+          <div class="sobre-cta">
+            <p>Pronto para jogar?</p>
+            <a class="btn-start" href="evoluçao.html">Ver a evolução <span class="blink">&#9654;</span></a>
           </div>
         </div>
-      </div>
-    </section>
-
+      </section>
+    </main>
     <!-- end about section -->
 
     <!-- footer section -->
@@ -171,6 +202,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
+
+  <!-- voltar ao topo -->
+    <a href="#topo" id="btn-topo" class="btn-topo btn-topo--img" aria-label="Voltar ao topo" title="Voltar ao topo"></a>
 
   </body>
 

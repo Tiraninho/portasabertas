@@ -68,6 +68,12 @@ textarea{
   min-height: 100vh;
 }
 
+@media (max-width: 992px) {
+  .home .hero_area {
+    min-height: 100vh;
+  }
+}
+
 /* escurece um pouco a imagem de fundo do hero pra dar contraste ao texto */
 .home .hero_area .bg-box::after,
 .page-sobre .hero_area .bg-box::after {

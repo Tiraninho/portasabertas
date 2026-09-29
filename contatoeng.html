@@ -13,7 +13,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="images/favicon.png" type="">
 
-    <title> Contato </title>
+    <title> Contact </title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -37,7 +37,7 @@
 
   </head>
 
-  <body class="sub_page">
+  <body id="topo" class="sub_page">
 
     <div class="hero_area">
       <div class="bg-box">
@@ -65,11 +65,10 @@
                   <a class="nav-link" href="evoluçaoeng.html">Evolution</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="bibliografiaeng.html">Bibliographies</a>
+                  <a class="nav-link" href="bibliografiaeng.html">Bibliography</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdownContato" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdownContato" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Credits
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownContato">
@@ -78,13 +77,13 @@
                   </div>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="contatoeng.html">Contact<span class="sr-only">(current)</span> </a>
+                  <a class="nav-link" href="contatoeng.html">Contact<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contatoeng.html"><img src="images/USA.png"></a>
+                  <a class="nav-link" href="contatoeng.html"><img src="images/USA.png" alt="English"></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contato.html"><img src="images/BR.png"></a>
+                  <a class="nav-link" href="contato.html"><img src="images/BR.png" alt="Português"></a>
                 </li>
               </ul>
             </div>
@@ -110,7 +109,7 @@
                   <input type="text" class="form-control" required placeholder="Name" />
                 </div>
                 <div>
-                  <input type="text" class="form-control" required placeholder="Phone number" />
+                  <input type="text" class="form-control" required placeholder="Phone" />
                 </div>
                 <div>
                   <input type="email" class="form-control" required placeholder="E-mail" />
@@ -118,7 +117,7 @@
                 <div>
                   <select class="form-control nice-select wide" required>
                     <option value="" disabled selected>
-                      Rate our site
+                      Rate our website
                     </option>
                     <option value="">
                       1⭐
@@ -137,7 +136,7 @@
                     </option>
                   </select>
                 </div>
-                <textarea cols="66" rows="10"></textarea><br>
+                <textarea cols="66" rows="10" placeholder="Message" aria-label="Message"></textarea><br>
                 <div class="btn_box">
                   <button type="submit">
                     Send
@@ -161,7 +160,7 @@
       <div class="container">
         <div class="footer-info">
           <p>
-            ETEC HUMBERTO FERÚCIO GAZETTA 2026 - &copy; All rights reserved <br><br> Non-profit academic work
+            ETEC HUMBERTO FERÚCIO GAZETTA 2026 - &copy; All rights reserved <br><br> Non-profit academic project
           </p>
         </div>
       </div>
@@ -189,6 +188,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
     </script>
     <!-- End Google Map -->
+
+  <!-- voltar ao topo -->
+    <a href="#topo" id="btn-topo" class="btn-topo btn-topo--img" aria-label="Back to top" title="Back to top"></a>
 
   </body>
 

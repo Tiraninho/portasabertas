@@ -25,7 +25,8 @@ textarea{resize:none!important}
 @media (min-width:992px){.nav-item.dropdown:hover .dropdown-menu{display:block}}
 
 /* ===== Home ===== */
-.home .hero_area .bg-box::after{
+.home .hero_area .bg-box::after,
+.page-sobre .hero_area .bg-box::after{
   content:""; position:absolute; inset:0;
   background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.7));
 }
@@ -62,24 +63,16 @@ textarea{resize:none!important}
 .sobre-page h2,.sobre-page h3{font-family:'Press Start 2P',cursive}
 
 /* cartões estilo "tela de arcade" */
-.crt,.era,.bib-card{
-  background:var(--ink); border:4px solid var(--amber); border-radius:14px;
-  box-shadow:8px 8px 0 rgba(255,190,51,.25); overflow:hidden;
-}
+.crt,.era,.bib-card{background:var(--ink); border:4px solid var(--amber); border-radius:14px; box-shadow:8px 8px 0 rgba(255,190,51,.25); overflow:hidden}
 .era{box-shadow:8px 8px 0 rgba(255,190,51,.22)}
 .crt{position:relative}
-.crt::after{ /* linhas de varredura */
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);
-}
+.crt::after{content:""; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
 .crt-bar,.era-bar,.bib-bar{background:var(--amber); color:var(--ink); font-family:'Press Start 2P',cursive; font-size:.62rem}
 .era-bar,.bib-bar{padding:10px 18px}
 .crt-bar{display:flex; align-items:center; gap:8px; padding:10px 16px; font-size:.6rem}
 .crt-bar i{display:inline-block; width:10px; height:10px; background:var(--ink)}
 .crt-bar span{margin-left:auto}
 .crt-body h2,.era h2,.bib-body h2{font-family:'Press Start 2P',cursive; line-height:1.6; color:var(--amber)}
-
-/* moldura das imagens */
 .sobre-img,.bib-img{border:4px solid var(--amber); border-radius:14px; overflow:hidden; background:var(--ink); box-shadow:-8px 8px 0 rgba(255,190,51,.25)}
 .sobre-img img,.bib-img img{display:block; width:100%; height:auto}
 
@@ -88,17 +81,11 @@ textarea{resize:none!important}
 .crt-body h2{font-size:1.25rem; margin-bottom:22px}
 .crt-body p{max-width:62ch; font-size:1.02rem; line-height:1.85; color:#e6e6e6}
 .crt-body p strong{color:var(--amber)}
-
-.btn-start{
-  display:inline-block; margin-top:26px; padding:14px 26px; border:0; border-radius:0;
-  background:var(--amber); color:var(--ink); font-family:'Press Start 2P',cursive; font-size:.7rem;
-  box-shadow:5px 5px 0 #b57f00; text-decoration:none; transition:transform .12s, box-shadow .12s;
-}
+.btn-start{display:inline-block; margin-top:26px; padding:14px 26px; border:0; border-radius:0; background:var(--amber); color:var(--ink); font-family:'Press Start 2P',cursive; font-size:.7rem; box-shadow:5px 5px 0 #b57f00; text-decoration:none; transition:transform .12s, box-shadow .12s}
 .btn-start:hover{color:var(--ink); text-decoration:none; transform:translate(3px,3px); box-shadow:2px 2px 0 #b57f00}
 .btn-start:focus-visible{outline:3px solid #fff; outline-offset:3px}
 .btn-start .blink{animation:blink 1s steps(2,start) infinite}
 @keyframes blink{to{visibility:hidden}}
-
 .timeline-head{margin:90px 0 40px; text-align:center}
 .timeline-head h3{font-size:1rem; line-height:1.7; color:#eee}
 .timeline-head p{margin-top:12px; color:var(--muted)}
@@ -130,7 +117,6 @@ textarea{resize:none!important}
 .evo-nav a:focus-visible{outline:3px solid #fff; outline-offset:2px}
 .evo-nav a[aria-current="true"] .dot{background:var(--amber); border-color:var(--amber); transform:scale(1.15)}
 .evo-nav a[aria-current="true"] .yr{color:var(--amber)}
-
 .era{scroll-margin-top:24px; margin-bottom:56px}
 .era-body{padding:28px 30px 32px}
 .era h2{margin-bottom:16px; font-size:1.05rem}
@@ -147,50 +133,27 @@ textarea{resize:none!important}
 .bib-body h2{margin-bottom:8px; font-size:1.05rem}
 .bib-body .lead{margin-bottom:24px; font-size:.95rem; color:var(--muted)}
 .bib-list{list-style:none; margin:0; padding:0; display:grid; gap:14px}
-.bib-list a{
-  display:flex; align-items:center; gap:14px; min-height:56px; padding:14px 20px;
-  background:var(--amber); color:var(--ink); font-weight:700; line-height:1.4; text-decoration:none;
-  border:3px solid #000; border-radius:14px;
-  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
-}
+.bib-list a{display:flex; align-items:center; gap:14px; min-height:56px; padding:14px 20px; background:var(--amber); color:var(--ink); font-weight:700; line-height:1.4; text-decoration:none; border:3px solid #000; border-radius:14px; transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease}
 .bib-list a::before{content:""; flex:none; width:12px; height:12px; background:#000; transition:transform .18s ease}
 .bib-list .go{margin-left:auto; flex:none; font-size:1.1rem; line-height:1; transition:transform .18s ease}
-.bib-list a:hover,.bib-list a:focus-visible{
-  color:var(--ink); text-decoration:none; background:#ffd36b; transform:translate(-4px,-4px);
-  box-shadow:6px 6px 0 #000, 6px 6px 0 3px rgba(255,190,51,.55);
-}
+.bib-list a:hover,.bib-list a:focus-visible{color:var(--ink); text-decoration:none; background:#ffd36b; transform:translate(-4px,-4px); box-shadow:6px 6px 0 #000, 6px 6px 0 3px rgba(255,190,51,.55)}
 .bib-list a:hover::before,.bib-list a:focus-visible::before{transform:rotate(45deg) scale(1.1)}
 .bib-list a:hover .go,.bib-list a:focus-visible .go{transform:translate(4px,-4px)}
 .bib-list a:active{transform:none; box-shadow:none}
 .bib-list a:focus-visible{outline:3px solid #fff; outline-offset:4px}
 
-/* ===== Botão "voltar ao topo" (seta com imagem da internet) ===== */
-.btn-topo{
-  position:fixed; z-index:1000; width:50px; height:50px;
-  right:calc(20px + env(safe-area-inset-right,0px)); bottom:calc(20px + env(safe-area-inset-bottom,0px));
-  display:flex; align-items:center; justify-content:center;
-  background:var(--amber); border:3px solid #000; border-radius:12px; box-shadow:4px 4px 0 #000;
-  opacity:0; visibility:hidden; transform:translateY(12px);
-  transition:opacity .25s, transform .25s, visibility .25s, box-shadow .15s, background-color .15s;
-}
+/* ===== Botão "voltar ao topo" ===== */
+.btn-topo{position:fixed; z-index:1000; width:50px; height:50px; right:calc(20px + env(safe-area-inset-right,0px)); bottom:calc(20px + env(safe-area-inset-bottom,0px)); display:flex; align-items:center; justify-content:center; background:var(--amber); border:3px solid #000; border-radius:12px; box-shadow:4px 4px 0 #000; opacity:0; visibility:hidden; transform:translateY(12px); transition:opacity .25s, transform .25s, visibility .25s, box-shadow .15s, background-color .15s}
 .btn-topo.visivel{opacity:1; visibility:visible; transform:none}
-.btn-topo::before{ /* seta desenhada em CSS (usada se não houver a versão com imagem) */
-  content:""; width:14px; height:14px; border-left:4px solid #000; border-top:4px solid #000;
-  transform:translateY(3px) rotate(45deg); transition:transform .15s;
-}
+.btn-topo::before{content:""; width:14px; height:14px; border-left:4px solid #000; border-top:4px solid #000; transform:translateY(3px) rotate(45deg); transition:transform .15s}
 .btn-topo:hover,.btn-topo:focus-visible{background:#ffd36b; box-shadow:6px 6px 0 #000; transform:translate(-2px,-2px)}
 .btn-topo:hover::before,.btn-topo:focus-visible::before{transform:translateY(0) rotate(45deg)}
 .btn-topo:active{box-shadow:1px 1px 0 #000; transform:translate(2px,2px)}
 .btn-topo:focus-visible{outline:3px solid #fff; outline-offset:3px}
-
-/* versão com imagem (ArrowUp.svg, Wikimedia Commons): só HTML + CSS */
 .btn-topo--img{opacity:1; visibility:visible; transform:none}
-.btn-topo--img::before{
-  width:26px; height:26px; border:0; transform:none;
-  background:url("https://commons.wikimedia.org/wiki/Special:FilePath/ArrowUp.svg") center/contain no-repeat;
-}
+.btn-topo--img::before{width:26px; height:26px; border:0; transform:none; background:url("https://commons.wikimedia.org/wiki/Special:FilePath/ArrowUp.svg") center/contain no-repeat}
 .btn-topo--img:hover::before,.btn-topo--img:focus-visible::before{transform:translateY(-3px)}
-@supports (animation-timeline:scroll()){ /* aparece só depois de rolar, sem JavaScript */
+@supports (animation-timeline:scroll()){
   .btn-topo--img{opacity:0; visibility:hidden; animation:btnTopoAparece linear both; animation-timeline:scroll(root); animation-range:0 400px}
 }
 @keyframes btnTopoAparece{to{opacity:1; visibility:visible}}
@@ -202,7 +165,6 @@ textarea{resize:none!important}
   .timeline::before{left:22px; right:auto; top:0; bottom:0; width:4px; height:auto; background:repeating-linear-gradient(180deg,var(--amber) 0 12px,transparent 12px 20px)}
   .timeline li{padding:0 0 0 72px}
   .timeline .dot{position:absolute; left:0; top:0; margin:0}
-
   .evo-grid{grid-template-columns:1fr; gap:20px}
   .evo-nav{top:0; z-index:20; margin:0 -15px; padding:10px 15px; overflow-x:auto; -webkit-overflow-scrolling:touch; background:rgba(21,26,32,.96); border-bottom:3px solid var(--amber)}
   .evo-nav ol{display:flex; gap:8px}
@@ -212,11 +174,7 @@ textarea{resize:none!important}
   .evo-nav a[aria-current="true"] .yr{color:var(--ink)}
   .era{scroll-margin-top:84px}
 }
-@media (max-width:767px){
-  .era-cols{grid-template-columns:1fr; gap:24px}
-  .era-body{padding:22px 20px 26px}
-  .era h2{font-size:.9rem}
-}
+@media (max-width:767px){.era-cols{grid-template-columns:1fr; gap:24px}.era-body{padding:22px 20px 26px}.era h2{font-size:.9rem}}
 @media (max-width:575px){
   .sobre-wrap,.bib-page{padding:50px 0 60px}
   .crt-body{padding:26px 22px 32px}
@@ -225,8 +183,31 @@ textarea{resize:none!important}
   .bib-body h2{font-size:.9rem}
   .bib-list a{padding:12px 14px}
 }
+
+/* Animações dos blocos da home e da página Sobre */
+.home .about_section .container{opacity:0; animation:fadeIn 1s ease forwards}
+.home .about_section .container:nth-of-type(2){animation-delay:.15s}
+.home .about_section .container:nth-of-type(3){animation-delay:.3s}
+@keyframes fadeIn{from{opacity:0; transform:translateY(35px)} to{opacity:1; transform:translateY(0)}}
+.home .about_section .img-box{overflow:hidden; border-radius:10px}
+.home .about_section .img-box img{transition:transform .5s ease}
+.home .about_section .img-box:hover img{transform:scale(1.06)}
+.home .about_section .detail-box>a{display:inline-block; margin-top:10px; padding:10px 28px; border:2px solid var(--amber); border-radius:30px; color:var(--amber); font-weight:bold; transition:all .3s ease}
+.home .about_section .detail-box>a:hover{background:var(--amber); color:var(--ink)}
+.page-sobre .about_section .detail-box{background:rgba(34,40,49,.6); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:#fff; padding:35px; border-radius:12px; opacity:0; animation:sobreFadeInRight 1s ease .25s forwards}
+.page-sobre .about_section .detail-box a{display:inline-block; margin-top:15px; padding:10px 28px; border:2px solid var(--amber); border-radius:30px; color:var(--amber); font-weight:bold; transition:all .3s ease; animation:pulseGlow 2.5s ease-in-out infinite}
+.page-sobre .about_section .detail-box a:hover{background:var(--amber); color:var(--ink); transform:translateY(-3px) scale(1.05); animation-play-state:paused; box-shadow:0 8px 18px rgba(255,190,51,.45)}
+.page-sobre .about_section .img-box{overflow:hidden; border-radius:12px; opacity:0; animation:sobreFadeInLeft 1s ease both}
+.page-sobre .about_section .img-box img{transition:transform .5s ease}
+.page-sobre .about_section .img-box:hover img{transform:scale(1.06) rotate(-1deg)}
+@keyframes sobreFadeInLeft{from{opacity:0; transform:translateX(-40px)} to{opacity:1; transform:translateX(0)}}
+@keyframes sobreFadeInRight{from{opacity:0; transform:translateX(40px)} to{opacity:1; transform:translateX(0)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 rgba(255,190,51,0)} 50%{box-shadow:0 0 14px rgba(255,190,51,.55)}}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .home .hero_text_container,.home .about_section .container,.page-sobre .about_section .detail-box,.page-sobre .about_section .img-box{animation:none; opacity:1; transform:none}
   .btn-start .blink{animation:none}
-  .btn-start,.bib-list a,.bib-list a::before,.bib-list .go,.btn-topo,.btn-topo::before{transition:none}
+  .btn-start,.bib-list a,.bib-list a::before,.bib-list .go,.btn-topo,.btn-topo::before,.home .about_section img,.home .about_section .detail-box>a,.page-sobre .about_section img,.page-sobre .about_section .detail-box a{transition:none}
+  .page-sobre .about_section .detail-box a{animation:none}
 }

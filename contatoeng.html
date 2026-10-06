@@ -97,7 +97,7 @@
     <section class="book_section layout_padding">
       <div class="container">
         <div class="heading_container">
-          <h2>
+          <h2 style="color: white;">
             Contact
           </h2>
         </div>
@@ -106,37 +106,42 @@
             <div class="form_container">
               <form action="">
                 <div>
-                  <input type="text" class="form-control" required placeholder="Name" />
+                  <label for="name" style="color: white;">Name <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" class="form-control" title="Please complete this field correctly.(Only letters)" pattern="[a-zA-Z\s]{2,100}" oninvalid="this.setCustomValidity('Please complete this field correctly.')" oninput="this.setCustomValidity('')" required placeholder="Name" />
                 </div>
                 <div>
-                  <input type="text" class="form-control" required placeholder="Phone" />
+                  <label for="phone" style="color: white;">Phone <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="phone" name="phone" type="tel" class="form-control" title="Please complete this field correctly.(Only numbers)" pattern="[0-9]{10,11}" oninvalid="this.setCustomValidity('Please complete this field correctly.')" oninput="this.setCustomValidity('')" required placeholder="Phone" />
                 </div>
                 <div>
-                  <input type="email" class="form-control" required placeholder="E-mail" />
+                  <label for="email" style="color: white;">E-mail <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" class="form-control" title="Please complete this field correctly.(Format: example@domain.com)" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" oninvalid="this.setCustomValidity('Please complete this field correctly.')" oninput="this.setCustomValidity('')" required placeholder="E-mail" />
                 </div>
                 <div>
-                  <select class="form-control nice-select wide" required>
+                  <label for="rating" style="color: white;">Rate our website <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="rating" name="rating" class="form-control" oninvalid="this.setCustomValidity('Please complete this field correctly.')" onchange="this.setCustomValidity('')" required>
                     <option value="" disabled selected>
                       Rate our website
                     </option>
-                    <option value="">
+                    <option value="1">
                       1⭐
                     </option>
-                    <option value="">
+                    <option value="2">
                       2⭐
                     </option>
-                    <option value="">
+                    <option value="3">
                       3⭐
                     </option>
-                    <option value="">
+                    <option value="4">
                       4⭐
                     </option>
-                    <option value="">
+                    <option value="5">
                       5⭐
                     </option>
                   </select>
                 </div>
-                <textarea cols="66" rows="10" placeholder="Message" aria-label="Message"></textarea><br>
+                <label for="message" style="color: white;">Message</label>
+                <textarea id="message" name="message" cols="66" rows="20" class="form-control" placeholder="Message"></textarea><br>
                 <div class="btn_box">
                   <button type="submit">
                     Send

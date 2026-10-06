@@ -11,6 +11,8 @@ body>*{flex-shrink:0}
 body>.about_section, body>.book_section, body>main{flex-grow:1}
 body>.footer_section{margin-top:auto}
 textarea{resize:none!important}
+.book_section .form_container label{display:block; margin-bottom:6px}
+.required-mark{color:#dc3545}
 
 /* ===== Menu ===== */
 .navbar-nav .nav-link,

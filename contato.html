@@ -5,7 +5,6 @@
     <!-- Basic -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
     <meta name="keywords" content="" />
@@ -98,7 +97,7 @@
     <section class="book_section layout_padding">
       <div class="container">
         <div class="heading_container">
-          <h2>
+          <h2 style="color: white;">
             Contato
           </h2>
         </div>
@@ -107,37 +106,30 @@
             <div class="form_container">
               <form action="">
                 <div>
-                  <input type="text" class="form-control" required placeholder="Nome" />
+                  <label for="nome" style="color: white;">Nome <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="nome" name="nome" type="text" class="form-control" title="Por favor, preencha este campo corretamente.(Apenas com letras)" pattern="[a-zA-Z\s]{2,100}" oninvalid="this.setCustomValidity('Por favor, preencha este campo corretamente.')" oninput="this.setCustomValidity('')" required placeholder="Nome">
                 </div>
                 <div>
-                  <input type="text" class="form-control" required placeholder="Telefone" />
+                  <label for="telefone" style="color: white;">Telefone <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="telefone" name="telefone" type="tel" class="form-control" title="Por favor, preencha este campo corretamente.(Apenas com números)" pattern="[0-9]{10,11}" oninvalid="this.setCustomValidity('Por favor, preencha este campo corretamente.')" oninput="this.setCustomValidity('')" required placeholder="Telefone">
                 </div>
                 <div>
-                  <input type="email" class="form-control" required placeholder="E-mail" />
+                  <label for="email" style="color: white;">E-mail <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" class="form-control" title="Por favor, preencha este campo corretamente.(Formato: exemplo@dominio.com)" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" oninvalid="this.setCustomValidity('Por favor, preencha este campo corretamente.')" oninput="this.setCustomValidity('')" required placeholder="E-mail">
                 </div>
                 <div>
-                  <select class="form-control nice-select wide" required>
-                    <option value="" disabled selected>
-                      Avalie nosso site
-                    </option>
-                    <option value="">
-                      1⭐
-                    </option>
-                    <option value="">
-                      2⭐
-                    </option>
-                    <option value="">
-                      3⭐
-                    </option>
-                    <option value="">
-                      4⭐
-                    </option>
-                    <option value="">
-                      5⭐
-                    </option>
+                  <label for="avaliacao" style="color: white;">Avalie nosso site <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="avaliacao" name="avaliacao" class="form-control" oninvalid="this.setCustomValidity('Por favor, preencha este campo corretamente.')" onchange="this.setCustomValidity('')" required>
+                    <option value="" disabled selected>Avalie nosso site</option>
+                    <option value="1">1⭐</option>
+                    <option value="2">2⭐</option>
+                    <option value="3">3⭐</option>
+                    <option value="4">4⭐</option>
+                    <option value="5">5⭐</option>
                   </select>
                 </div>
-                <textarea cols="66" rows="10"></textarea><br>
+                <label for="mensagem" style="color: white;">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" cols="66" rows="20" class="form-control"></textarea><br>
                 <div class="btn_box">
                   <button type="submit">
                     Enviar

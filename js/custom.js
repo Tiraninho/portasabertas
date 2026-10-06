@@ -21,7 +21,7 @@ $(window).on('load', function () {
 
 // nice select
 $(document).ready(function() {
-    $('select').niceSelect();
+    $('select.nice-select').niceSelect();
   });
 
 /** google_map js **/

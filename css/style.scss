@@ -1,6 +1,6 @@
 $white: #ffffff;
 $black: #000000;
-$primary1: #ffbe33;
+$primary1: #00d4ff;
 $primary2: #222831;
 $textCol: #1f1f1f;
 
@@ -256,7 +256,7 @@ a:focus {
   }
 
   .order_online {
-    @include hero_btn($primary1, $white, 8px, 30px, 45px);
+    @include hero_btn($primary1, $primary2, 8px, 30px, 45px);
   }
 }
 
@@ -349,7 +349,7 @@ a:focus {
     }
 
     a {
-      @include hero_btn($primary1, $white, 10px, 45px, 45px);
+      @include hero_btn($primary1, $primary2, 10px, 45px, 45px);
       margin-top: 10px;
     }
 
@@ -440,7 +440,7 @@ a:focus {
       p {}
 
       a {
-        @include hero_btn($primary1, $white, 10px, 30px, 45px);
+        @include hero_btn($primary1, $primary2, 10px, 30px, 45px);
 
         svg {
           width: 20px;
@@ -569,7 +569,7 @@ a:focus {
     margin-top: 45px;
 
     a {
-      @include hero_btn($primary1, $white, 10px, 55px, 45px);
+      @include hero_btn($primary1, $primary2, 10px, 55px, 45px);
     }
   }
 }
@@ -605,7 +605,7 @@ a:focus {
     }
 
     a {
-      @include hero_btn($primary1, $white, 10px, 45px, 45px);
+      @include hero_btn($primary1, $primary2, 10px, 45px, 45px);
       margin-top: 15px;
     }
   }
@@ -653,7 +653,7 @@ a:focus {
       margin-top: 15px;
       border: none;
       text-transform: uppercase;
-      @include hero_btn($primary1, $white, 10px, 55px, 45px);
+      @include hero_btn($primary1, $primary2, 10px, 55px, 45px);
     }
   }
 
@@ -800,7 +800,7 @@ a:focus {
       margin-top: 10px;
       border: none;
       text-transform: uppercase;
-      @include hero_btn($primary1, $white, 10px, 55px, 0px);
+      @include hero_btn($primary1, $primary2, 10px, 55px, 0px);
     }
   }
 

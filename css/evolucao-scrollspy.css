@@ -1,0 +1,62 @@
+/* Linha do tempo "scrollspy" em CSS puro (substitui o JS antigo)
+   Usa scroll-driven animations (view-timeline). Ajuste --evo-accent para a cor do site. */
+@property --cur  { syntax: '<number>'; inherits: true; initial-value: 0; }
+@property --done { syntax: '<number>'; inherits: true; initial-value: 0; }
+
+:root { --evo-accent: #22d3ee; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* estados visuais (atual = --cur, já passou = --done) */
+.evo-nav li { --lit: max(var(--cur), var(--done)); }
+.evo-nav li a { opacity: calc(.55 + .45 * var(--lit)); transition: opacity .25s ease; }
+.evo-nav li a .dot {
+  transform: scale(calc(1 + .35 * var(--cur)));
+  background-color: color-mix(in srgb, var(--evo-accent) calc(var(--lit) * 100%), transparent);
+  box-shadow: 0 0 0 calc(var(--cur) * 4px) color-mix(in srgb, var(--evo-accent) 35%, transparent);
+}
+.evo-nav li a .yr { color: color-mix(in srgb, var(--evo-accent) calc(var(--cur) * 100%), currentColor); }
+
+/* sem suporte a scroll-driven animations: destaca pelo clique (:target) */
+.evo-nav li:first-child { --cur: 1; }
+
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e1950:target) .evo-nav li:has(a[href="#e1950"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e1958:target) .evo-nav li:has(a[href="#e1958"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e1970:target) .evo-nav li:has(a[href="#e1970"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e1980:target) .evo-nav li:has(a[href="#e1980"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e1990:target) .evo-nav li:has(a[href="#e1990"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e2000:target) .evo-nav li:has(a[href="#e2000"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e2010:target) .evo-nav li:has(a[href="#e2010"]) { --cur: 1; }
+.evo-grid:has(.era:target) .evo-nav li:first-child { --cur: 0; }
+.evo-grid:has(#e2020:target) .evo-nav li:has(a[href="#e2020"]) { --cur: 1; }
+
+@supports (animation-timeline: view()) {
+  @keyframes evo-cur       { 0% { --cur: 0 } 1% { --cur: 1 } 99% { --cur: 1 } 100% { --cur: 0 } }
+  @keyframes evo-cur-first { 0%, 99% { --cur: 1 } 100% { --cur: 0 } }
+  @keyframes evo-done      { from { --done: 0 } to { --done: 1 } }
+  .evo-grid { timeline-scope: --te1950, --te1958, --te1970, --te1980, --te1990, --te2000, --te2010, --te2020; }
+  #e1950 { view-timeline: --te1950 block; }
+  #e1958 { view-timeline: --te1958 block; }
+  #e1970 { view-timeline: --te1970 block; }
+  #e1980 { view-timeline: --te1980 block; }
+  #e1990 { view-timeline: --te1990 block; }
+  #e2000 { view-timeline: --te2000 block; }
+  #e2010 { view-timeline: --te2010 block; }
+  #e2020 { view-timeline: --te2020 block; }
+  .evo-nav li:nth-child(1) { animation: evo-cur-first linear both; animation-timeline: --te1950; animation-range: cover 0% cover calc(100% - 40vh); }
+  .evo-nav li:nth-child(2) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te1958, --te1958; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(3) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te1970, --te1970; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(4) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te1980, --te1980; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(5) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te1990, --te1990; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(6) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te2000, --te2000; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(7) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te2010, --te2010; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+  .evo-nav li:nth-child(8) { animation: evo-cur linear both, evo-done linear both; animation-timeline: --te2020, --te2020; animation-range: cover 60vh cover calc(100% - 40vh), cover 55vh cover 60vh; }
+}

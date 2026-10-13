@@ -1,0 +1,82 @@
+
+.era-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 1.25rem 0 1.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d0d0d;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+}
+.era-carousel > input { position: absolute; opacity: 0; pointer-events: none; }
+
+.era-slides { display: flex; transition: transform .45s ease; }
+.era-slide  { position: relative; flex: 0 0 100%; }
+
+/* Tamanho padrão para todas as imagens: caixa 16:9 */
+.era-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #0d0d0d; }
+.era-frame img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;   /* não corta nem estica */
+  display: block;
+}
+.era-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 2rem 1rem .7rem;
+  color: #fff; font-size: .9rem; line-height: 1.3;
+  background: linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0));
+  pointer-events: none;
+}
+
+/* Setas */
+.era-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; line-height: 40px;
+  text-align: center; font-size: 1.1rem;
+  color: #fff; background: rgba(0,0,0,.5);
+  border-radius: 50%; cursor: pointer; user-select: none;
+  transition: background .2s;
+}
+.era-arrow:hover { background: rgba(0,0,0,.8); }
+.era-arrow.prev { left: .6rem; }
+.era-arrow.next { right: .6rem; }
+
+/* Bolinhas */
+.era-dots { position: absolute; top: .6rem; right: .7rem; display: flex; gap: 6px; }
+.era-dots label {
+  width: 22px; height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,.4); cursor: pointer; transition: background .2s;
+}
+
+/* Qual slide aparece (suporta até 5 imagens por carrossel) */
+.era-carousel > input:nth-of-type(2):checked ~ .era-slides { transform: translateX(-100%); }
+.era-carousel > input:nth-of-type(3):checked ~ .era-slides { transform: translateX(-200%); }
+.era-carousel > input:nth-of-type(4):checked ~ .era-slides { transform: translateX(-300%); }
+.era-carousel > input:nth-of-type(5):checked ~ .era-slides { transform: translateX(-400%); }
+
+.era-carousel > input:nth-of-type(1):checked ~ .era-dots label:nth-child(1),
+.era-carousel > input:nth-of-type(2):checked ~ .era-dots label:nth-child(2),
+.era-carousel > input:nth-of-type(3):checked ~ .era-dots label:nth-child(3),
+.era-carousel > input:nth-of-type(4):checked ~ .era-dots label:nth-child(4),
+.era-carousel > input:nth-of-type(5):checked ~ .era-dots label:nth-child(5) { background: #fff; }
+
+@media (max-width: 575.98px) {
+  .era-frame { aspect-ratio: 4 / 3; }
+  .era-cap { font-size: .8rem; }
+  .era-arrow { width: 34px; height: 34px; line-height: 34px; }
+}
+
+/* ===== Barra lateral da linha do tempo (só um pouco maior) ===== */
+@media (min-width: 992px) {
+  main.evo-page .evo-grid {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);   /* largura da barra: mude aqui */
+    gap: 2.5rem;
+    align-items: start;
+  }
+  main.evo-page .evo-nav { width: auto; max-width: none; align-self: start; }
+  main.evo-page .evo-nav .yr    { font-size: 1.4rem; }
+  main.evo-page .evo-nav small  { font-size: .9rem; }
+}

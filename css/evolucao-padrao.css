@@ -1,0 +1,227 @@
+/* =========================================================
+   evolucao-padrao.css  (carregar DEPOIS de evolucao-carrossel.css)
+   1) Carrossel: moldura de tamanho padrão para todas as imagens
+   2) Barra lateral da linha do tempo maior
+   ========================================================= */
+
+/* ---------- 1) CARROSSEL PADRONIZADO ---------- */
+.era .era-carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 1.25rem 0 1.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0f14;
+}
+
+/* esconde os radios que controlam o carrossel */
+.era .era-carousel > input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* trilho: cada slide ocupa 100% da largura */
+.era .era-carousel .era-slides {
+  display: flex;
+  width: 100%;
+  transition: transform .5s ease;
+  will-change: transform;
+}
+.era .era-carousel .era-slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* MOLDURA PADRÃO: mesma proporção/altura para qualquer imagem */
+.era .era-carousel .era-frame {
+  position: relative;
+  width: 100%;
+  height: 420px;              /* altura padrão (desktop) */
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, #1b2030 0%, #0d0f14 75%);
+  overflow: hidden;
+}
+.era .era-carousel .era-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* mostra a imagem inteira, sem cortar capas e consoles */
+  object-position: center;
+  display: block;
+  padding: 32px 14px 52px;    /* espaço para bolinhas e legenda */
+  box-sizing: border-box;
+}
+.era .era-carousel .era-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: .6rem 1rem;
+  text-align: center;
+  font-size: .95rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,0));
+}
+
+/* setas */
+.era .era-carousel .era-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background .25s ease, transform .25s ease;
+}
+.era .era-carousel .era-arrow:hover { background: rgba(0,0,0,.8); transform: translateY(-50%) scale(1.08); }
+.era .era-carousel .era-arrow.prev { left: 12px; }
+.era .era-carousel .era-arrow.next { right: 12px; }
+
+/* bolinhas */
+.era .era-carousel .era-dots {
+  position: absolute;
+  left: 0; right: 0; top: 10px;
+  z-index: 3;
+  display: flex; justify-content: center; gap: 8px;
+}
+.era .era-carousel .era-dots label {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+
+/* posição do carrossel e bolinha ativa (até 10 imagens) */
+.era .era-carousel > input:nth-of-type(1):checked ~ .era-slides  { transform: translateX(0); }
+.era .era-carousel > input:nth-of-type(2):checked ~ .era-slides  { transform: translateX(-100%); }
+.era .era-carousel > input:nth-of-type(3):checked ~ .era-slides  { transform: translateX(-200%); }
+.era .era-carousel > input:nth-of-type(4):checked ~ .era-slides  { transform: translateX(-300%); }
+.era .era-carousel > input:nth-of-type(5):checked ~ .era-slides  { transform: translateX(-400%); }
+.era .era-carousel > input:nth-of-type(6):checked ~ .era-slides  { transform: translateX(-500%); }
+.era .era-carousel > input:nth-of-type(7):checked ~ .era-slides  { transform: translateX(-600%); }
+.era .era-carousel > input:nth-of-type(8):checked ~ .era-slides  { transform: translateX(-700%); }
+.era .era-carousel > input:nth-of-type(9):checked ~ .era-slides  { transform: translateX(-800%); }
+.era .era-carousel > input:nth-of-type(10):checked ~ .era-slides { transform: translateX(-900%); }
+
+.era .era-carousel > input:nth-of-type(1):checked ~ .era-dots label:nth-child(1),
+.era .era-carousel > input:nth-of-type(2):checked ~ .era-dots label:nth-child(2),
+.era .era-carousel > input:nth-of-type(3):checked ~ .era-dots label:nth-child(3),
+.era .era-carousel > input:nth-of-type(4):checked ~ .era-dots label:nth-child(4),
+.era .era-carousel > input:nth-of-type(5):checked ~ .era-dots label:nth-child(5),
+.era .era-carousel > input:nth-of-type(6):checked ~ .era-dots label:nth-child(6),
+.era .era-carousel > input:nth-of-type(7):checked ~ .era-dots label:nth-child(7),
+.era .era-carousel > input:nth-of-type(8):checked ~ .era-dots label:nth-child(8),
+.era .era-carousel > input:nth-of-type(9):checked ~ .era-dots label:nth-child(9),
+.era .era-carousel > input:nth-of-type(10):checked ~ .era-dots label:nth-child(10) {
+  background: #fff;
+  transform: scale(1.35);
+}
+
+@media (max-width: 991px) {
+  .era .era-carousel .era-frame { height: 340px; }
+}
+@media (max-width: 575px) {
+  .era .era-carousel .era-frame { height: 260px; }
+  .era .era-carousel .era-arrow { width: 36px; height: 36px; }
+}
+
+/* ---------- 2) BARRA LATERAL DA LINHA DO TEMPO MAIOR ---------- */
+@media (min-width: 992px) {
+  .evo-page .evo-grid {
+    grid-template-columns: 320px minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+  .evo-page .evo-nav {
+    min-width: 320px;
+    flex: 0 0 320px;
+  }
+  .evo-page .evo-nav li { padding-bottom: 1.2rem; }
+  .evo-page .evo-nav a { gap: 1.2rem; }
+  .evo-page .evo-nav .yr {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+  .evo-page .evo-nav small {
+    font-size: 1.15rem;
+  }
+  .evo-page .evo-nav .dot {
+    transform: scale(1.7);       /* cresce a partir do centro: a linha continua alinhada */
+    transform-origin: center;
+  }
+}
+
+/* celular/tablet: barra horizontal maior */
+@media (max-width: 991px) {
+  .evo-page .evo-nav .yr { font-size: 1.5rem; }
+  .evo-page .evo-nav small { font-size: 1rem; }
+}
+
+/* ---------- 3) AJUSTES DE RESPONSIVIDADE (PT/EN) ---------- */
+.evo-page,
+.evo-page * { box-sizing: border-box; }
+.evo-page { width: 100%; min-width: 0; padding: 2rem 0 4rem; }
+.evo-page > .container { width: 100%; }
+.evo-page .evo-grid { min-width: 0; }
+.evo-page .evo-content { min-width: 0; width: 100%; }
+.evo-page .era { min-width: 0; max-width: 100%; scroll-margin-top: 100px; }
+.evo-page .era-body { min-width: 0; overflow-wrap: anywhere; }
+.evo-page .era h2,
+.evo-page .era p { overflow-wrap: anywhere; }
+.evo-page .era-carousel { width: 100%; max-width: 100%; }
+.evo-page .era-slides { min-width: 0; }
+.evo-page .era-frame { min-width: 0; }
+
+@media (min-width: 992px) {
+  .evo-page .evo-grid { grid-template-columns: minmax(250px, 320px) minmax(0, 1fr); gap: clamp(1.5rem, 3vw, 3rem); }
+  .evo-page .evo-nav { min-width: 0; }
+}
+
+@media (max-width: 991.98px) {
+  .evo-page { padding: 1rem 0 3rem; }
+  .evo-page .evo-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .evo-page .evo-nav {
+    position: sticky; top: 0; z-index: 30;
+    width: auto; max-width: none; min-width: 0;
+    margin: 0 -15px; padding: .65rem 15px;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+  }
+  .evo-page .evo-nav ol { display: flex; width: max-content; min-width: 100%; gap: .5rem; }
+  .evo-page .evo-nav ol::before,
+  .evo-page .evo-nav ol::after,
+  .evo-page .evo-nav .dot,
+  .evo-page .evo-nav small { display: none; }
+  .evo-page .evo-nav li { flex: 0 0 auto; padding: 0; }
+  .evo-page .evo-nav a { display: block; padding: .6rem .75rem; white-space: nowrap; }
+  .evo-page .evo-nav .yr { font-size: 1rem; line-height: 1.3; }
+  .evo-page .era-body { padding: 1.25rem; }
+}
+
+@media (max-width: 575.98px) {
+  .evo-page > .container { padding-left: 15px; padding-right: 15px; }
+  .evo-page .era-bar { padding: .7rem .9rem; font-size: .58rem; line-height: 1.6; overflow-wrap: anywhere; }
+  .evo-page .era-body { padding: 1rem; }
+  .evo-page .era h2 { font-size: 1rem; line-height: 1.5; }
+  .evo-page .era-intro { font-size: .95rem; line-height: 1.7; }
+  .evo-page .era .era-frame { height: clamp(210px, 62vw, 300px); }
+  .evo-page .era .era-frame img { padding: 30px 8px 52px; }
+  .evo-page .era .era-cap { padding: .5rem .6rem; font-size: .75rem; line-height: 1.35; }
+  .evo-page .era .era-arrow { width: 34px; height: 34px; font-size: .9rem; }
+  .evo-page .era .era-arrow.prev { left: 7px; }
+  .evo-page .era .era-arrow.next { right: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evo-page .era-slides,
+  .evo-page .era-arrow,
+  .evo-page .evo-nav a { transition: none !important; }
+}

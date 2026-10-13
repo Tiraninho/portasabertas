@@ -1,0 +1,102 @@
+/* ===== Páginas de Créditos: Orientadores e Desenvolvedores ===== */
+.cred-page{
+  padding:70px 0 90px; color:#eee;
+  background:
+    linear-gradient(rgba(var(--accent-rgb),.045) 1px,transparent 1px) 0 0/32px 32px,
+    linear-gradient(90deg,rgba(var(--accent-rgb),.045) 1px,transparent 1px) 0 0/32px 32px,
+    var(--deep);
+}
+
+/* Cabeçalho */
+.cred-head{text-align:center; margin-bottom:56px}
+.cred-tag{
+  display:inline-block; padding:8px 16px; background:var(--accent); color:var(--ink);
+  font-family:'Press Start 2P',cursive; font-size:.6rem; box-shadow:4px 4px 0 var(--accent-dark);
+}
+.cred-head h2{
+  margin-top:26px; font-family:'Press Start 2P',cursive; font-size:1.7rem; line-height:1.5;
+  color:#fff; text-shadow:4px 4px 0 rgba(var(--accent-rgb),.35);
+}
+.cred-head p{margin:16px auto 0; max-width:48ch; color:var(--muted); font-size:1.02rem}
+.cred-head .pixel-line{
+  width:140px; height:4px; margin:26px auto 0;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 12px,transparent 12px 20px);
+}
+
+/* Grade de cartões */
+.cred-grid{display:grid; gap:34px; align-items:stretch}
+.cred-grid--3{grid-template-columns:repeat(3,1fr)}
+.cred-grid--4{grid-template-columns:repeat(4,1fr); gap:26px}
+
+/* Cartão */
+.cred-card{
+  display:flex; flex-direction:column; background:var(--ink);
+  border:4px solid var(--accent); border-radius:14px; overflow:hidden;
+  box-shadow:8px 8px 0 rgba(var(--accent-rgb),.25);
+  opacity:0; animation:credIn .7s var(--ease) forwards;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.cred-card:nth-child(1){animation-delay:.1s}
+.cred-card:nth-child(2){animation-delay:.25s}
+.cred-card:nth-child(3){animation-delay:.4s}
+.cred-card:nth-child(4){animation-delay:.55s}
+@keyframes credIn{from{opacity:0; transform:translateY(40px) scale(.96)} to{opacity:1; transform:none}}
+.cred-card:hover{transform:translate(-5px,-8px); box-shadow:13px 16px 0 rgba(var(--accent-rgb),.3)}
+
+.cred-bar{
+  display:flex; align-items:center; gap:8px; padding:10px 16px;
+  background:var(--accent); color:var(--ink);
+  font-family:'Press Start 2P',cursive; font-size:.58rem;
+}
+.cred-bar i{display:inline-block; width:9px; height:9px; background:var(--ink)}
+.cred-bar span{margin-left:auto}
+
+.cred-body{flex:1; display:flex; flex-direction:column; align-items:center; padding:34px 24px 30px; text-align:center}
+
+/* Avatar com iniciais */
+.cred-avatar{
+  position:relative; display:flex; align-items:center; justify-content:center;
+  width:96px; height:96px; margin-bottom:22px;
+  background:var(--deep); border:4px solid var(--accent);
+  font-family:'Press Start 2P',cursive; font-size:1.3rem; color:var(--accent);
+  box-shadow:5px 5px 0 var(--accent-dark);
+  transition:transform .4s var(--ease-spring), background-color .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.cred-card:hover .cred-avatar{transform:rotate(-6deg) scale(1.08); background:var(--accent); color:var(--ink); box-shadow:7px 7px 0 var(--accent-dark)}
+
+.cred-body h3{
+  margin:0 0 16px; font-size:1.12rem; line-height:1.4; font-weight:700; color:#fff;
+  transition:color .3s var(--ease);
+}
+.cred-card:hover .cred-body h3{color:var(--accent)}
+
+.cred-role{
+  margin:-6px 0 0; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+}
+
+/* Formações */
+.cred-list{list-style:none; margin:0; padding:16px 0 0; width:100%; border-top:3px dotted rgba(var(--accent-rgb),.5); display:grid; gap:10px; text-align:left}
+.cred-list li{
+  position:relative; padding-left:22px; font-size:.92rem; line-height:1.5; color:#d8dde3;
+  transition:transform .3s var(--ease), color .3s var(--ease);
+}
+.cred-list li::before{
+  content:""; position:absolute; left:0; top:.5em; width:9px; height:9px; background:var(--accent);
+  transition:transform .3s var(--ease-spring);
+}
+.cred-card:hover .cred-list li::before{transform:rotate(45deg)}
+.cred-list li:hover{transform:translateX(4px); color:#fff}
+
+/* Responsivo */
+@media (max-width:1199px){.cred-grid--4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:991px){.cred-grid--3{grid-template-columns:1fr; max-width:520px; margin:0 auto}}
+@media (max-width:575px){
+  .cred-page{padding:48px 0 60px}
+  .cred-head h2{font-size:1.15rem}
+  .cred-grid--4{grid-template-columns:1fr; max-width:420px; margin:0 auto}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .cred-card{animation:none; opacity:1}
+  .cred-card,.cred-avatar,.cred-list li,.cred-list li::before{transition:none}
+}
